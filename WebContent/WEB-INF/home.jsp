@@ -4,14 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Kalkulator home</title>
 </head>
 <body>
-<form action="" method="post">
-	<input name="imie" type="text">
-	<input name="nazwisko" type="email">
-	<input name="telefon" type="text">
-	<input type="submit">
+<form action="Home" method="post">
+	<label><input name="imie" type="text" required>Imie</label><br>
+	<label><input name="nazwisko" type="text" required>Nazwisko</label><br>
+	<label><input name="telefon" type="text" required>Telefon</label><br>
+	<label><input type="radio" name="type" value="1" checked>Kredyt</label>
+	<label><input type="radio" name="type" value="2">Lokata</label><br>
+	<input type="submit" value="Wlacz kalkulator">
 </form>
 </body>
 </html>
