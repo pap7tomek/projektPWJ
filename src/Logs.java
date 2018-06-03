@@ -13,7 +13,7 @@ public class Logs {
 
     private String firstName;
 
-    private String secoundName;
+    private String lastName;
 
     private String phoneNumber;
 
@@ -25,20 +25,20 @@ public class Logs {
 		this.firstName = firstName;
 	}
 
-	public String getSecoundName() {
-		return secoundName;
-	}
-
-	public void setSecoundName(String secoundName) {
-		this.secoundName = secoundName;
-	}
-
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
     
 }

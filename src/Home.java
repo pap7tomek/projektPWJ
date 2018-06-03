@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.Session;
+
+
+
 /**
  * Servlet implementation class Home
  */
@@ -32,8 +36,16 @@ public class Home extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.sendRedirect("Lokaty?telefon="+request.getParameter("telefon"));
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Logs l = new Logs();
+		l.setFirstName(request.getParameter("imie"));
+		l.setLastName(request.getParameter("nazwisko"));
+		l.setPhoneNumber(request.getParameter("telefon"));
+		session.beginTransaction();  
+        session.persist(l);
+        session.getTransaction().commit(); 
+        session.close();
+		response.sendRedirect("Lokaty?telefon="+request.getParameter("telefon")+"&type="+request.getParameter("type"));
 	}
 
 }
