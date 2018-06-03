@@ -14,5 +14,6 @@
         <property name="hibernate.hbm2ddl.auto"> create </property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
 
+		<mapping class="Logs"></mapping>
     </session-factory>
 </hibernate-configuration>
