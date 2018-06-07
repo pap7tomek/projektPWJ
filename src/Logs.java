@@ -11,11 +11,30 @@ public class Logs {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
-    private String firstName;
+	private String firstName;
 
     private String lastName;
 
     private String phoneNumber;
+    
+    private int type;
+    
+    public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+    
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
 
 	public String getFirstName() {
 		return firstName;

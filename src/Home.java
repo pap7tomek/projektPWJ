@@ -41,11 +41,13 @@ public class Home extends HttpServlet {
 		l.setFirstName(request.getParameter("imie"));
 		l.setLastName(request.getParameter("nazwisko"));
 		l.setPhoneNumber(request.getParameter("telefon"));
+		l.setType(Integer.parseInt(request.getParameter("type")));
 		session.beginTransaction();  
         session.persist(l);
         session.getTransaction().commit(); 
         session.close();
-		response.sendRedirect("Lokaty?telefon="+request.getParameter("telefon")+"&type="+request.getParameter("type"));
+        request.setAttribute("telefon", l.getPhoneNumber());
+		request.getRequestDispatcher("WEB-INF/lokaty.jsp").forward(request, response);
 	}
 
 }
