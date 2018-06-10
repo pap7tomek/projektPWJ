@@ -28,6 +28,7 @@
 	    	<option value="5">rok</option>
 	 	</select>
 	</label><br>
+	<input style="display:none;" name="telefon" type="text" value="${telefon}">
 	<input type="submit" value="Oblicz">
 </form>
 </body>

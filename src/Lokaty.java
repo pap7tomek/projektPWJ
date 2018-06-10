@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.Session;
+
 /**
  * Servlet implementation class Lokaty
  */
@@ -36,8 +38,18 @@ public class Lokaty extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		LokatyBaza l = new LokatyBaza();
+		l.setKwota(Double.parseDouble(request.getParameter("kwota")));
+		l.setOprocentowanie(Double.parseDouble(request.getParameter("oprocentowanie")));
+		l.setOkres(Integer.parseInt(request.getParameter("okres")));
+		l.setOkres2(Integer.parseInt(request.getParameter("okres2")));
+		l.setKapitalizacja(Integer.parseInt(request.getParameter("kapitalizacja")));
+		l.setTelefon(request.getParameter("telefon"));
+		session.beginTransaction();  
+        session.persist(l);
+        session.getTransaction().commit(); 
+        session.close();
 	}
 
 }
