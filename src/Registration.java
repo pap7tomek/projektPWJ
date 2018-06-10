@@ -43,8 +43,9 @@ public class Registration extends HttpServlet {
 		Query<User> checkQuery = session.createQuery("from User where telefon = :telefon");
 		checkQuery.setParameter("telefon", request.getParameter("telefon"));
 		List<User> checkList = checkQuery.list();
-		if(checkList.isEmpty()) {
-			
+		if(!checkList.isEmpty()) {
+			request.setAttribute("info", "Nie mo¿na dodaæ. Ktoœ z takim numerem telefonu ju¿ siê u nas zarejestrowa³!!!");
+	        request.getRequestDispatcher("WEB-INF/rejestracjaWynik.jsp").forward(request, response);
 		}
 		User l = new User();
 		l.setLogin(request.getParameter("login"));
@@ -59,6 +60,7 @@ public class Registration extends HttpServlet {
         query.setParameter("telefon", request.getParameter("telefon"));
         List<LokatyBaza> list = query.list();
         session.close();
+        request.setAttribute("info", "Dodano nowego u¿ytkownika");
         request.setAttribute("lista", list);
         request.getRequestDispatcher("WEB-INF/rejestracjaWynik.jsp").forward(request, response);
 	}

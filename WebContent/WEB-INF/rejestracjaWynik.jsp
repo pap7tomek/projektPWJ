@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Udało się założyć konto</h1>
+<h1>${info}</h1>
 <c:forEach items="${lista}" var="item">
     ${item.kwota}<br>
 </c:forEach>
