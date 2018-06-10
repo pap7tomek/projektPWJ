@@ -50,6 +50,14 @@ public class Lokaty extends HttpServlet {
         session.persist(l);
         session.getTransaction().commit(); 
         session.close();
+        request.setAttribute("kwota", Double.parseDouble(request.getParameter("kwota")));
+        request.setAttribute("oprocentowanie", Double.parseDouble(request.getParameter("oprocentowanie")));
+        request.setAttribute("okres", Integer.parseInt(request.getParameter("okres")));
+        request.setAttribute("okres2", Integer.parseInt(request.getParameter("okres2")));
+        request.setAttribute("kapitalizacja", Integer.parseInt(request.getParameter("kapitalizacja")));
+        request.setAttribute("kapitalizacja", Integer.parseInt(request.getParameter("kapitalizacja")));
+        request.setAttribute("telefon", request.getParameter("telefon"));
+		request.getRequestDispatcher("WEB-INF/lokatyWynik.jsp").forward(request, response);
 	}
 
 }
