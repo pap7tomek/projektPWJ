@@ -42,6 +42,7 @@ public class Home extends HttpServlet {
 		l.setLastName(request.getParameter("nazwisko"));
 		l.setPhoneNumber(request.getParameter("telefon"));
 		l.setType(Integer.parseInt(request.getParameter("type")));
+		l.setIp(request.getRemoteAddr());
 		session.beginTransaction();  
         session.persist(l);
         session.getTransaction().commit(); 

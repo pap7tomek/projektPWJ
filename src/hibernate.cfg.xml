@@ -16,5 +16,6 @@
 
 		<mapping class="Logs"></mapping>
 		<mapping class="LokatyBaza"></mapping>
+		<mapping class="User"></mapping>
     </session-factory>
 </hibernate-configuration>

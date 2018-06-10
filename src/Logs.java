@@ -19,7 +19,17 @@ public class Logs {
     
     private int type;
     
-    public Integer getId() {
+    private String ip;
+    
+    public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
