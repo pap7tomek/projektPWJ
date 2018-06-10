@@ -46,8 +46,14 @@ public class Home extends HttpServlet {
         session.persist(l);
         session.getTransaction().commit(); 
         session.close();
-        request.setAttribute("telefon", l.getPhoneNumber());
-		request.getRequestDispatcher("WEB-INF/lokaty.jsp").forward(request, response);
+        if(Integer.parseInt(request.getParameter("type")) == 2) {
+        	request.setAttribute("telefon", l.getPhoneNumber());
+    		request.getRequestDispatcher("WEB-INF/lokaty.jsp").forward(request, response);
+        }else{
+        	request.setAttribute("telefon", l.getPhoneNumber());
+    		request.getRequestDispatcher("WEB-INF/kredyty.jsp").forward(request, response);
+        }
+        
 	}
 
 }
