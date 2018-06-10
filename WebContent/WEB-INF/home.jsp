@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Kalkulator</h1>
-<a href="Rejestracja">Rejestracja</a>
+<a href="Registration">Rejestracja</a>
 <form action="Home" method="post">
 	<label><input name="imie" type="text" required>Imie</label><br>
 	<label><input name="nazwisko" type="text" required>Nazwisko</label><br>
