@@ -30,6 +30,29 @@
 	</label><br>
 	<input style="display:none;" value="${telefon}" name="telefon" type="text" value="${telefon}">
 	<input type="submit" value="Oblicz">
+	<p>Jeśli dzisiaj włożysz ${kwota} zł na lokatę, to za ${okres} będziesz mieć ${miec}</p>
+	<table>
+	<thead>
+    	<tr>
+          <th>Wartość</th>
+          <th>Kwota</th>
+        </tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Deponowana kwota</td>
+			<td>${kwota} zł</td>
+		</tr>
+		<tr>
+			<td>Podatek</td>
+			<td>${podatek} zł</td>
+		</tr>
+		<tr>
+			<td>Zysk netto</td>
+			<td>${zysk} zł</td>
+		</tr>
+	</tbody>
+	</table>
 </form>
 </body>
 </html>
