@@ -19,6 +19,8 @@ public class KredytyBaza {
     private Integer typ;
     
     private String telefon;
+    
+    private String wynik;
 
 	public Integer getId() {
 		return id;
@@ -66,5 +68,13 @@ public class KredytyBaza {
 
 	public void setTyp(Integer typ) {
 		this.typ = typ;
+	}
+
+	public String getWynik() {
+		return wynik;
+	}
+
+	public void setWynik(String wynik) {
+		this.wynik = wynik;
 	}
 }

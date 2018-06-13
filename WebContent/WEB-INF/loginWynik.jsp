@@ -8,9 +8,88 @@
 </head>
 <body>
 <h1>${info}</h1>
-<c:forEach items="${lista}" var="item">
-    ${item.kwota}<br>
+<c:if test="${!empty lokaty}">
+<h2>Lokaty</h2>
+<table>
+  <tr>
+    <th>Kwota</th>
+    <th>Oprocentowanie</th>
+    <th>Okres deponowania</th>
+    <th>Kapitalizacja</th>
+    <th>Odbierzesz</th>
+  </tr>
+
+<c:forEach items="${lokaty}" var="item">
+<tr>
+    <td>${item.kwota}</td>
+    <td>${item.oprocentowanie}%</td>
+    <td>${item.okres} 
+    <c:if test="${item.okres2 == 1}">
+    	lat
+    </c:if>
+    <c:if test="${item.okres2 == 2}">
+    	miesiecy
+    </c:if>
+    <c:if test="${item.okres2 == 3}">
+    	tygodni
+    </c:if>
+    <c:if test="${item.okres2 == 4}">
+    	dni
+    </c:if>
+    </td>
+    <td>
+    <c:if test="${item.kapitalizacja == 1}">
+    	15 dni
+    </c:if>
+    <c:if test="${item.kapitalizacja == 2}">
+    	1 miesiac
+    </c:if>
+    <c:if test="${item.kapitalizacja == 3}">
+    	3 miesiace
+    </c:if>
+    <c:if test="${item.kapitalizacja == 4}">
+    	6 miesiacy
+    </c:if>
+    <c:if test="${item.kapitalizacja == 5}">
+    	rok
+    </c:if>
+    </td>
+    <td>${item.wynik}zł</td>
+</tr>
+
 </c:forEach>
+</table>
+</c:if>
+<c:if test="${!empty kredyty}">
+<h2>Kredyt</h2>
+<table>
+  <tr>
+    <th>Kwota</th>
+    <th>Oprocentowanie</th>
+    <th>Okres spłaty</th>
+    <th>Typ</th>
+    <th>Razem do spłaty</th>
+  </tr>
+
+<c:forEach items="${kredyty}" var="item">
+<tr>
+    <td>${item.kwota}</td>
+    <td>${item.oprocentowanie}%</td>
+    <td>${item.okres}</td>
+    <td>
+    <c:if test="${item.typ == 1}">
+    	raty równe
+    </c:if>
+    <c:if test="${item.typ == 2}">
+    	raty rosnące
+    </c:if>
+    </td>
+    <td>${item.wynik}zł</td>
+</tr>
+
+</c:forEach>
+</table>
+</c:if>
 <a href="Home">Strona główna</a>
 </body>
 </html>

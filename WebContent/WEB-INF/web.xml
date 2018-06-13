@@ -5,7 +5,27 @@
         <display-name>Home</display-name>
         <servlet-name>Home</servlet-name>
         <servlet-class>Home</servlet-class>
-    </servlet>
+  </servlet>
+   <servlet>
+        <display-name>Lokaty</display-name>
+        <servlet-name>Lokaty</servlet-name>
+        <servlet-class>Lokaty</servlet-class>
+  </servlet>
+  <servlet>
+        <display-name>Kredyty</display-name>
+        <servlet-name>Kredyty</servlet-name>
+        <servlet-class>Kredyty</servlet-class>
+  </servlet>
+  <servlet>
+        <display-name>Login</display-name>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>Login</servlet-class>
+  </servlet>
+  <servlet>
+        <display-name>Registration</display-name>
+        <servlet-name>Registration</servlet-name>
+        <servlet-class>Registration</servlet-class>
+  </servlet>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>

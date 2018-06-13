@@ -82,6 +82,7 @@ public class Kredyty extends HttpServlet {
 		l.setOkres(n/12);
 		l.setTyp(rodzaj);
 		l.setTelefon(request.getParameter("telefon"));
+		l.setWynik(String.format("%.2f", suma));
 		session.beginTransaction();  
         session.persist(l);
         session.getTransaction().commit(); 

@@ -22,6 +22,8 @@ public class LokatyBaza {
     private Integer kapitalizacja;
     
     private String telefon;
+
+    private String wynik;
     
 
 	public String getTelefon() {
@@ -78,6 +80,14 @@ public class LokatyBaza {
 
 	public void setOkres2(Integer okres2) {
 		this.okres2 = okres2;
+	}
+
+	public String getWynik() {
+		return wynik;
+	}
+
+	public void setWynik(String wynik) {
+		this.wynik = wynik;
 	}
     
 }

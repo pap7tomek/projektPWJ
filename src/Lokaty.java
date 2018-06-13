@@ -45,11 +45,10 @@ public class Lokaty extends HttpServlet {
 		l.setOkres(Integer.parseInt(request.getParameter("okres")));
 		l.setOkres2(Integer.parseInt(request.getParameter("okres2")));
 		l.setKapitalizacja(Integer.parseInt(request.getParameter("kapitalizacja")));
+		
 		l.setTelefon(request.getParameter("telefon"));
-		session.beginTransaction();  
-        session.persist(l);
-        session.getTransaction().commit(); 
-        session.close();
+		
+        
         request.setAttribute("kwota", Double.parseDouble(request.getParameter("kwota")));
         request.setAttribute("oprocentowanie", Double.parseDouble(request.getParameter("oprocentowanie")));
         request.setAttribute("okres", Integer.parseInt(request.getParameter("okres")));
@@ -117,6 +116,11 @@ public class Lokaty extends HttpServlet {
         request.setAttribute("podatek", String.format("%.2f", podatek));
         request.setAttribute("zysk", String.format("%.2f", zysk));
         request.setAttribute("miec", String.format("%.2f", wynik - podatek));
+        l.setWynik(String.format("%.2f", wynik - podatek));
+		session.beginTransaction();  
+        session.persist(l);
+        session.getTransaction().commit(); 
+        session.close();
 		request.getRequestDispatcher("WEB-INF/lokatyWynik.jsp").forward(request, response);
 	}
 

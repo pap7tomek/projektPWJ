@@ -53,6 +53,9 @@ public class Login extends HttpServlet {
 			Query<LokatyBaza> query1 = session.createQuery("from LokatyBaza where telefon = :telefon");
 	        query1.setParameter("telefon", u.getTelefon());
 	        List<LokatyBaza> list1 = query1.list();
+	        list1.forEach(item->{
+	        	System.out.println(item.getKwota());
+	        });
 	        @SuppressWarnings("unchecked")
 			Query<KredytyBaza> query2 = session.createQuery("from KredytyBaza where telefon = :telefon");
 	        query2.setParameter("telefon", u.getTelefon());
@@ -61,7 +64,7 @@ public class Login extends HttpServlet {
 	        request.setAttribute("info", "Oto Twoja historia");
 	        request.setAttribute("lokaty", list1);
 	        request.setAttribute("kredyty", list2);
-	        request.getRequestDispatcher("WEB-INF/rejestracjaWynik.jsp").forward(request, response);
+	        request.getRequestDispatcher("WEB-INF/loginWynik.jsp").forward(request, response);
 		}
 		
 	}
