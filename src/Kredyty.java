@@ -38,7 +38,7 @@ public class Kredyty extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int rodzaj = 0;
 		double n = 0, k = 0, opr = 0, q = 0;
-		List <String> lista = new ArrayList();
+		List <String> lista = new ArrayList<String>();
 		double suma = 0;
 		double rata = 0;
 		try {
@@ -61,7 +61,6 @@ public class Kredyty extends HttpServlet {
 	    } catch (Exception e) {
 	    	opr = 0;
 	    }
-		System.out.println(rodzaj);
 		if(rodzaj == 1) {
 			q = 1 + (opr/12);
 			rata = (k*Math.pow(q, n)*(q-1))/(Math.pow(q, n)-1);
@@ -73,6 +72,12 @@ public class Kredyty extends HttpServlet {
 				lista.add(String.format("%.2f", rata));
 			}
 		}
+		request.setAttribute("typ", rodzaj);
+		request.setAttribute("lista", lista);
+        request.setAttribute("rata", String.format("%.2f", rata));
+        request.setAttribute("suma", String.format("%.2f", suma));
+        request.setAttribute("kwota",k);
+        request.getRequestDispatcher("WEB-INF/kredytyWynik.jsp").forward(request, response);
 	}
 
 }

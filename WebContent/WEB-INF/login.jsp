@@ -13,5 +13,6 @@
 	<label><input name="haslo" type="password" required>Hasło</label><br>
 	<input type="submit" value="Zaloguj">
 </form>
+<a href="Home">Strona główna</a>
 </body>
 </html>

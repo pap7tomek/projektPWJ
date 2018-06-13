@@ -14,5 +14,6 @@
 	<label>Telefon <input name="telefon" type="text" required></label><br>
 	<input type="submit" value="Zarejestruj">
 </form>
+<a href="Home">Strona główna</a>
 </body>
 </html>
