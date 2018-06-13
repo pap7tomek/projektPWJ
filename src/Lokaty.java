@@ -1,8 +1,6 @@
 
 
 import java.io.IOException;
-import java.util.Date;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,10 +28,7 @@ public class Lokaty extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getParameter("telefon"));
-		String telefon = request.getParameter("telefon");
-		request.setAttribute("telefon", telefon);
-		request.getRequestDispatcher("WEB-INF/lokaty.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/error.jsp").forward(request, response);
 	}
 
 	/**
@@ -43,7 +38,6 @@ public class Lokaty extends HttpServlet {
 		double k = 0, r = 0, n = 0;
 		int m = 0;
 		double m1 = 1;
-		double n1 = 0, n2 = 0;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		LokatyBaza l = new LokatyBaza();
 		l.setKwota(Double.parseDouble(request.getParameter("kwota")));
