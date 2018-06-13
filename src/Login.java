@@ -50,12 +50,17 @@ public class Login extends HttpServlet {
 		}else {
 			User u = checkList.get(0);
 	        @SuppressWarnings("unchecked")
-			Query<LokatyBaza> query = session.createQuery("from LokatyBaza where telefon = :telefon");
-	        query.setParameter("telefon", u.getTelefon());
-	        List<LokatyBaza> list = query.list();
+			Query<LokatyBaza> query1 = session.createQuery("from LokatyBaza where telefon = :telefon");
+	        query1.setParameter("telefon", u.getTelefon());
+	        List<LokatyBaza> list1 = query1.list();
+	        @SuppressWarnings("unchecked")
+			Query<KredytyBaza> query2 = session.createQuery("from KredytyBaza where telefon = :telefon");
+	        query2.setParameter("telefon", u.getTelefon());
+	        List<KredytyBaza> list2 = query2.list();
 	        session.close();
 	        request.setAttribute("info", "Oto Twoja historia");
-	        request.setAttribute("lista", list);
+	        request.setAttribute("lokaty", list1);
+	        request.setAttribute("kredyty", list2);
 	        request.getRequestDispatcher("WEB-INF/rejestracjaWynik.jsp").forward(request, response);
 		}
 		

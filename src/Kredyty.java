@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.Session;
+
 /**
  * Servlet implementation class Kredyty
  */
@@ -72,6 +74,18 @@ public class Kredyty extends HttpServlet {
 				lista.add(String.format("%.2f", rata));
 			}
 		}
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		KredytyBaza l = new KredytyBaza();
+		l.setKwota(k);
+		l.setOprocentowanie(opr*100);
+		l.setOkres(n/12);
+		l.setTyp(rodzaj);
+		l.setTelefon(request.getParameter("telefon"));
+		session.beginTransaction();  
+        session.persist(l);
+        session.getTransaction().commit(); 
+        session.close();
 		request.setAttribute("typ", rodzaj);
 		request.setAttribute("lista", lista);
         request.setAttribute("rata", String.format("%.2f", rata));

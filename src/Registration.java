@@ -46,23 +46,20 @@ public class Registration extends HttpServlet {
 		if(!checkList.isEmpty()) {
 			request.setAttribute("info", "Nie mo¿na dodaæ. Ktoœ z takim numerem telefonu ju¿ siê u nas zarejestrowa³!!!");
 	        request.getRequestDispatcher("WEB-INF/rejestracjaWynik.jsp").forward(request, response);
+		}else {
+			User l = new User();
+			l.setLogin(request.getParameter("login"));
+			l.setPassword(request.getParameter("haslo"));
+			l.setEmail(request.getParameter("email"));
+			l.setTelefon(request.getParameter("telefon"));
+			session.beginTransaction();  
+	        session.persist(l);
+	        session.getTransaction().commit(); 
+	        session.close();
+	        request.setAttribute("info", "Dodano nowego u¿ytkownika");
+	        request.getRequestDispatcher("WEB-INF/rejestracjaWynik.jsp").forward(request, response);
 		}
-		User l = new User();
-		l.setLogin(request.getParameter("login"));
-		l.setPassword(request.getParameter("haslo"));
-		l.setEmail(request.getParameter("email"));
-		l.setTelefon(request.getParameter("telefon"));
-		session.beginTransaction();  
-        session.persist(l);
-        session.getTransaction().commit(); 
-        @SuppressWarnings("unchecked")
-		Query<LokatyBaza> query = session.createQuery("from LokatyBaza where telefon = :telefon");
-        query.setParameter("telefon", request.getParameter("telefon"));
-        List<LokatyBaza> list = query.list();
-        session.close();
-        request.setAttribute("info", "Dodano nowego u¿ytkownika");
-        request.setAttribute("lista", list);
-        request.getRequestDispatcher("WEB-INF/rejestracjaWynik.jsp").forward(request, response);
+		
 	}
 
 }

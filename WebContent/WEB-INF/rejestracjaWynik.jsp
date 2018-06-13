@@ -8,9 +8,6 @@
 </head>
 <body>
 <h1>${info}</h1>
-<c:forEach items="${lista}" var="item">
-    ${item.kwota}<br>
-</c:forEach>
 <a href="Home">Strona główna</a>
 </body>
 </html>
